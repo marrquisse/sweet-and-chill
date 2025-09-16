@@ -3,114 +3,148 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #fdfdfe;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
   color: #333;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Контейнер */
 .wrap {
+  flex: 1;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 0;
 }
 .board {
-  width: 1100px;
-  min-height: 700px;
+  width: 100%;
+  min-height: 100vh; /* тепер на весь екран */
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: 70px 1fr 60px;
-  gap: 15px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  grid-template-columns: 260px 1fr 260px;
+  grid-template-rows: 80px 1fr 80px;
+  gap: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
 }
 
 /* Верхнє меню */
 .b1 {
   grid-column: 1/4;
-  background: linear-gradient(90deg, #a6d8ff, #f9c6d2);
-  border-radius: 6px;
+  background: linear-gradient(90deg, #84c1ff, #f9a6c2);
+  border-radius: 14px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
 }
 .b1 nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 40px;
   margin: 0;
   padding: 0;
 }
-.b1 nav ul li { margin: 0; }
 .b1 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s;
-  padding: 10px 6px;
-  display: inline-block;
+  transition: all 0.25s ease;
+  padding: 12px 10px;
+  border-radius: 8px;
 }
-.b1 nav a:hover { text-decoration: underline; transform: translateY(-1px); }
-.b1 nav a.active { text-decoration: underline; }
+.b1 nav a:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+.b1 nav a.active {
+  background: rgba(255,255,255,0.35);
+}
 
 /* Ліва панель */
 .b2 {
-  background: #e8f4ff;
-  padding: 15px;
-  border-radius: 6px;
-  font-size: 14px;
+  background: #eaf6ff;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: 0 3px 8px rgba(0,0,0,.08);
 }
 
 /* Центральний контент */
 .b5 {
-  background: #fff0f5;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 20px;
+  background: #fff0f7;
+  border: 1px solid #f2d1e4;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
-.b5 h2 { margin-top: 0; color: #d76c8c; }
-.b5 img { max-width: 100%; border-radius: 6px; display:block; margin-top:12px; }
+.b5 h2 {
+  margin-top: 0;
+  color: #d35f8d;
+  font-size: 26px;
+}
+.b5 img {
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+  margin-top: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+  transition: transform 0.3s ease;
+}
+.b5 img:hover {
+  transform: scale(1.04);
+}
 
 /* Права панель */
 .b4 {
-  background: #e8f4ff;
-  padding: 15px;
-  border-radius: 6px;
-  font-size: 14px;
+  background: #eaf6ff;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: 0 3px 8px rgba(0,0,0,.08);
 }
 
-/* Маленький блок під правою панеллю */
+/* Маленький блок */
 .b6 {
   grid-column: 3/4;
-  background: #dfffea;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 13px;
+  background: #ddffef;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-style: italic;
+  box-shadow: 0 3px 8px rgba(0,0,0,.08);
 }
 
 /* Футер */
 .b7 {
   grid-column: 1/4;
-  background: linear-gradient(90deg, #a6d8ff, #f9c6d2);
+  background: linear-gradient(90deg, #84c1ff, #f9a6c2);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 18px 30px;
+  box-shadow: 0 -3px 10px rgba(0,0,0,.1);
 }
-.b7 h2, .b7 h3 { margin: 0; font-weight: 400; }
+.b7 h2, .b7 h3 {
+  margin: 0;
+  font-weight: 500;
+}
 
 /* Адаптив */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .board {
-    width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
-  .b6 { grid-column: 1; }
-  .b1 nav ul { flex-wrap: wrap; gap: 12px; }
+  .b6, .b2, .b4 {
+    grid-column: 1;
+  }
+  .b1 nav ul { flex-wrap: wrap; gap: 18px; }
 }
